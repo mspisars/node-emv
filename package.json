@@ -1,8 +1,9 @@
 {
   "name": "node-emv",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "The EMV parser library",
-  "readme": "README.md",
+  "readme": "ERROR: No README data found!",
+  "files": ["README.md"],
   "main": "emv.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
