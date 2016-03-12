@@ -25,8 +25,6 @@ emv.parse('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
 	}
 });
 
-```
-
 
 // Parsing and describing EMV data
 emv.describe(hex, function(data){
@@ -67,6 +65,8 @@ emv.auc('2A7F', function(data){
 	}		
 });
 
+
+```
 
 
 ## Contributing
