@@ -1,4 +1,4 @@
-# node-emv
+# Node EMV parser
 
 EMV stands for Europay, MasterCard, and Visa, the three companies that originally created the standard. The standard is now managed by EMVCo, a consortium with control split equally among Visa, Mastercard, JCB, American Express, China UnionPay, and Discover. 
 
