@@ -15,14 +15,17 @@ EMV is standard to use smart cards in payment industry, chip card, EFT POS termi
 
 ## Usage
 
-`var emv = require('./emv.js');`
+```
+var emv = require('./emv.js');
 
-`// Parsing EMV data
+// Parsing EMV data
 emv.parse('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
 	if(data != null){
 		console.log(data);
 	}
-});`
+});
+
+```
 
 
 // Parsing and describing EMV data
