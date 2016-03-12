@@ -73,7 +73,7 @@ emv.aip('0040', function(data){
 
 ```
 
-```
+```javascript
 
 //Application Usage Control tag
 emv.auc('2A7F', function(data){
