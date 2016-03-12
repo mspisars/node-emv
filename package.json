@@ -2,6 +2,7 @@
   "name": "node-emv",
   "version": "1.0.2",
   "description": "The EMV parser library",
+  "readme": "README.md",
   "main": "emv.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
