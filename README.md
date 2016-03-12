@@ -25,6 +25,9 @@ emv.parse('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
 	}
 });
 
+```
+
+```
 
 // Parsing and describing EMV data
 emv.describe(hex, function(data){
@@ -33,6 +36,9 @@ emv.describe(hex, function(data){
 	}		
 });
 
+```
+
+```
 
 // Lookup an EMV tag in node-emv dictionary
 emv.lookup('9F10', function(data){
@@ -42,6 +48,9 @@ emv.lookup('9F10', function(data){
 	}		
 });
 
+```
+
+```
 
 // Describing Terminal Verification Result(TVR)
 emv.tvr('8000048000', function(data){
@@ -50,6 +59,9 @@ emv.tvr('8000048000', function(data){
 	}		
 });
 
+```
+
+```
 
 // Try to get information about Aplication Interchange Profile(AIP)
 emv.aip('0040', function(data){
@@ -57,6 +69,10 @@ emv.aip('0040', function(data){
 		console.log(data);
 	}		
 });
+
+```
+
+```
 
 //Application Usage Control tag
 emv.auc('2A7F', function(data){
