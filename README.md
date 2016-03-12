@@ -1,6 +1,7 @@
 # node-emv
 
-EMV stands for Europay, MasterCard, and Visa, the three companies that originally created the standard. The standard is now managed by EMVCo, a consortium with control split equally among Visa, Mastercard, JCB, American Express, China UnionPay, and Discover.
+EMV stands for Europay, MasterCard, and Visa, the three companies that originally created the standard. The standard is now managed by EMVCo, a consortium with control split equally among Visa, Mastercard, JCB, American Express, China UnionPay, and Discover. 
+
 EMV is standard to use smart cards in payment industry, chip card, EFT POS terminals and transaction processing. EMV data will be encoded in TLV(Tag, Length, Value) format, so that we need a sdk to work with such data. Node-emv is a library written in Javascript to provide parsing facility for EMV data, searching EMV tags and describing activities in EMV standard, like Terminal Verification Result, Appliction Interchange Profile, Cardholder Verification Method and so on. 
 
 
