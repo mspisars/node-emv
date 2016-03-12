@@ -16,7 +16,7 @@ EMV is standard to use smart cards in payment industry, chip card, EFT POS termi
 
 ## Usage
 
-```
+```javascript
 var emv = require('node-emv');
 
 // Parsing EMV data
@@ -28,7 +28,7 @@ emv.parse('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
 
 ```
 
-```
+```javascript
 
 // Parsing and describing EMV data
 emv.describe('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
@@ -39,7 +39,7 @@ emv.describe('9F34030200009F26087DE7FED1071C1A279F270180', function(data){
 
 ```
 
-```
+```javascript
 
 // Lookup an EMV tag in node-emv dictionary
 emv.lookup('9F10', function(data){
@@ -51,7 +51,7 @@ emv.lookup('9F10', function(data){
 
 ```
 
-```
+```javascript
 
 // Describing Terminal Verification Result(TVR)
 emv.tvr('8000048000', function(data){
@@ -62,7 +62,7 @@ emv.tvr('8000048000', function(data){
 
 ```
 
-```
+```javascript
 
 // Try to get information about Aplication Interchange Profile(AIP)
 emv.aip('0040', function(data){
