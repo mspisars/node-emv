@@ -85,10 +85,10 @@ emv.auc('2A7F', function(data){
 
 ```
 
-## Demo
+## Live Demo
 
 ```
-[You can try to parse your EMV data here](http://namvar.nl:3001)
+You can try to parse your EMV data [here](http://namvar.nl:3001)
 
 ```
 
