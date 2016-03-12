@@ -85,6 +85,12 @@ emv.auc('2A7F', function(data){
 
 ```
 
+## Demo
+
+```
+You can try (http://namvar.nl:3001) to parse EMV your data.
+
+```
 
 ## Contributing
 
