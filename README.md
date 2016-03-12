@@ -8,7 +8,7 @@ EMV is standard to use smart cards in payment industry, chip card, EFT POS termi
 
 ## Installation
 
-'npm install node-emv'
+`npm install node-emv`
 
 
 
