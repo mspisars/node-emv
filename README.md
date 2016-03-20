@@ -87,7 +87,7 @@ emv.auc('2A7F', function(data){
 
 ## Sample application
 
-Please check out a desktop application which is using node-emv [here](https://github.com/mhdnamvar/emv-desktop-app)
+Please check out a desktop application which is using node-emv [here](https://github.com/mhdnamvar/emv-desktop-app).
 
 
 ## Contributing
