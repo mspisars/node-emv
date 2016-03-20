@@ -5,9 +5,8 @@ var emv_tags = require('./tags.js');
 function lookup( tag, callback ){
 	var found = emv_tags.filter(function(item) {
 		if(item.tag == tag)
-			return item.name;
+			callback (item.name);
 		});
-		callback(found);
 };
 
 function getValue( tag, emv_objects, callback ){
