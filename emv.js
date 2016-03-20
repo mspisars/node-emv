@@ -70,7 +70,7 @@ function describe(emv_data, callback){
 			for(var i=0; i < tlv_list.length; i++){
 				lookup(tlv_list[i].tag,  function(data){
 					if(data.length > 0){
-						emv_objects.push( { 'tag': tlv_list[i].tag, 'length': tlv_list[i].length, 'value' : tlv_list[i].value, 'description' : data[0].name} );
+						emv_objects.push( { 'tag': tlv_list[i].tag, 'length': tlv_list[i].length, 'value' : tlv_list[i].value, 'description' : name} );
 					}else{
 						emv_objects.push( tlv_list[i] );
 					}
