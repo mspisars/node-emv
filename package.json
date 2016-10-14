@@ -1,6 +1,6 @@
 {
   "name": "node-emv",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "The EMV parser library",
 
   "main": "emv.js",
