@@ -44,14 +44,20 @@ function parse(emv_data, callback){
 		var lenHex = emv_data.substring(tag.length, tag.length + 2);
 
 		var lenBin = util.pad(util.Hex2Bin(lenHex), 8);
-		if(lenBin.substring(0, 1) == 1){
-			console.log('lenHex: ' + lenHex + ' lenBin: '+ lenBin +' ---> len is more than 1 byte');
-		 	lenHex = emv_data.substring(tag.length, tag.length + 4);
-		}
-
+		var byteToBeRead = 1
 		var len = util.Hex2Dec(lenHex) * 2;
 		var offset = tag.length + 2 + len;
-		var value = emv_data.substring(tag.length + 2, offset);
+
+		if(lenHex.substring(0, 1) == "8"){
+			byteToBeRead = util.Hex2Dec(lenHex.substring(1, 2));
+			lenHex = emv_data.substring(tag.length, tag.length + 2 + byteToBeRead*2)
+			console.log('lenHex: ' + lenHex + ' lenBin: '+ lenBin +' ---> len is more than 1 byte');
+			// 	lenHex = emv_data.substring(tag.length, tag.length + 4);
+			len = util.Hex2Dec(lenHex.substring(1)) * 2;
+			offset = tag.length + 2 + (byteToBeRead*2)+len;
+		}
+
+		var value = emv_data.substring(tag.length + 2 + (byteToBeRead*2), offset);
 
 		//console.log(tag + ' ' + lenHex + ' ' + value);
 		emv_objects.push( { 'tag': tag, 'length': lenHex, 'value' : value} );
