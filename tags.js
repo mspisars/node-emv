@@ -5333,6 +5333,352 @@ var tags = [
    "description":	"This flag indicates whether a transaction with a zero amount is permitted.",
    "comment":	"The default minimum range is 0 to 60. Note that the number range is inclusive, so a range of 0 to 60 should be capable of generating 61 integer numbers in the range 0 to 60."
    }
+   ,
+   {
+     "tag": "E1",
+     "name": "Services Data Template",
+     "kernel":"kernel_20",
+     "source": "",
+     "format": "",
+     "template": "",
+     "length": "variable", "description": "Equivalent of EMVCo EMV Tag 5A – used in perso."
+   }
+   ,
+   {
+     "tag": "DF77",
+     "name": "Payment Token",
+     "kernel":"kernel_20",
+     "source": "",
+     "format": "",
+     "template": "",
+     "length": "variable",
+     "description": "Equivalent of EMVCo EMV Tag 5A – used in perso."
+   }
+   ,
+   {
+     "tag": "DF11",
+     "name": "Token Assurance Level", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": "Not currently in use"}
+   ,{
+     "tag": "DF15",
+     "name": "Token Requestor ID", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF19",
+     "name": "Funding PAN", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF12",
+     "name": "PAN Product ID", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "5F24",
+     "name": "Token Expiry Date", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": "5F24 is an EMVCo EMV Tag - used in perso. When mapped to 006 the ‘DD’ is dropped from 5F24, when mapping from 006 the last day of the specified month (MM) is to be appended."}
+   ,{
+     "tag": "DF14",
+     "name": "Token Request Indicator", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "5F34",
+     "name": "Token Card Sequence Number", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF13",
+     "name": "Token Assurance Data", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF63",
+     "name": "Action Code", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF20",
+     "name": "Funding PAN Expiration Date ", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF65",
+     "name": "Card Score", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF68",
+     "name": "Card Score Reasons", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF64",
+     "name": "Customisation Asset Identifiers", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF71",
+     "name": "Device Identifier", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF66",
+     "name": "Device Information", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7F",
+     "name": "Device Name", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7A",
+     "name": "Device Score", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "9F70",
+     "name": "Form Factor Identifier", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF70",
+     "name": "Funding PAN Source", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "5F2D", "name": "Language Preference", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7B", "name": "Mapping Identifier", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF72", "name": "Response Life", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7C", "name": "Server Identifier	Currently not required for eftpos", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF73", "name": "Service Request Identifier", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF74", "name": "Specification Version", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF75", "name": "Status Code", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF69", "name": "T&C Acceptance Date", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7D", "name": "User Account Score", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF78", "name": "TSP Validation result", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF79", "name": "User Validation Code", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF7E", "name": "User Validation Method", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF60", "name": "T&C (Accepted) ID", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF61", "name": "Cardholder Address", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "5F20", "name": "Cardholder Name	EMVCo EMV Tag - used in perso", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF27", "name": "Locale", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF28", "name": "latitude", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF29", "name": "longitude", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2A", "name": "Ip Address", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2B", "name": "Phone Number (Device Number)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2C", "name": "Device Brand", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2D", "name": "Manufacturer", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2E", "name": "Model", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF2F", "name": "Operating Network", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF30", "name": "Network Type", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF31", "name": "IMEI/MEID (Last 2 characters)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF32", "name": "Serial Number (Last 2 characters)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF33", "name": "OS Version", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF34", "name": "Device Time Zone", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF35", "name": "Time Zone Manager", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF36", "name": "Android ID (Last 2 characters)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF37", "name": "Wallet ID", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF38", "name": "Client Type", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF39", "name": "Newly added Card", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3A", "name": "Card On File Tenure (Weeks)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3B", "name": "Wallet Account Tenure (Weeks	", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3C", "name": "Gaia Account Tenure (Weeks)", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3D", "name": "Wallet Name mismatches Cardholder Name", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3E", "name": "Tokens On Device", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF3F", "name": "Country Of Device", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF40", "name": "Masked Email", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF41", "name": "Hashed email", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,{
+     "tag": "DF42", "name": "Recommendation Algorithm Version", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""}
+   ,
+   {
+     "tag": "E3", "name": "Personalization Data Template", "kernel":"kernel_20", "source": "", "format": "", "template": "", "length": "variable", "description": ""
+   }
+    ,
+    {
+        "tag" : "DF63",
+        "name": "Action Code",
+        "kernel" : "kernel_21",
+        "source": "",
+        "format": "",
+        "template": "",
+        "length": "",
+        "description": ""
+    }
+	,
+	{
+	    "tag" : "5A",
+	      "name": "Primary Account Number",
+	      "kernel" : "kernel_21",
+	      "source": "",
+	      "format": "",
+	      "template": "",
+	      "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF65",
+	    "name": "Card Score", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF68",
+	    "name": "Card Score Reasons", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF61",
+	    "name": "Cardholder Address", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "5F20",
+	    "name": "Cardholder Name", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "5F24",
+	    "name": "Application Expiration Date", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "5F2D",
+	    "name": "Language Preference", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF64",
+	    "name": "Customization Asset Identifiers List", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF71",
+	    "name": "Device Identifier", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF66",
+	    "name": "Device Information", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7F",
+	    "name": "Device Name", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7A",
+	    "name": "Device Score", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF67",
+	    "name": "Email", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF69",
+	    "name": "Terms and Conditions Acceptance Date", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F52",
+	    "name": "Merchant Type Indicator Limit 1", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F54",
+	    "name": "Merchant Type Indicator Limit 2", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F55",
+	    "name": "Merchant Type Indicator Limit 3", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F56",
+	    "name": "Merchant Type Indicator Limit 4", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F57",
+	    "name": "Merchant Type Indicator Limit 5", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "9F70",
+	    "name": "Form Factor Indicator", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF70",
+	    "name": "Funding PAN Source", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF50",
+	    "name": "Issuer Proprietary Message", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "5F2D",
+	    "name": "Language Preference", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7B",
+	    "name": "Mapping Identifier", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF72",
+	    "name": "Response Life", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7C",
+	    "name": "Server Identifier", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF73",
+	    "name": "Service Request Identifier", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "E1",
+	      "name": "Services Data Template", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF74",
+	    "name": "Specification Version", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF75",
+	    "name": "Status Code", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF76",
+	    "name": "Telephone Number", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF77",
+	    "name": "Tokenized Primary Account Number (T-PAN)", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF78",
+	    "name": "TSP Validation Results", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7D",
+	    "name": "User Account Score", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF79",
+	    "name": "User Validation Code", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "DF7E",
+	    "name": "User Validation Method", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "E2",
+	      "name": "User Validation Methods List", "kernel":"kernel_21", "source": "", "format": "", "template": "", "length": "", "description": ""}
+	,
+	{
+	    "tag" : "E3",
+	    "name": "Personalization Data Template",
+	    "kernel":"kernel_21",
+	    "source": "",
+	    "format": "",
+	    "template": "",
+	    "length": "",
+	    "description": ""
+	 }
+
+
 ]
 
 module.exports = tags;
