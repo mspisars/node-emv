@@ -267,17 +267,22 @@ var tags = [
    "length":	"2 [B]",
    "description":	"Indicates the country of the issuer according to ISO 3166-1",
    "comment":	"C"
-   },{ "tag" :		"5F2A",
-   "name" :		"Transaction Currency Code",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 3",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Indicates the currency code of the transaction according to ISO 4217",
-   "comment":	"M",
-   "Example":	"0978"
-   },{ "tag" :		"5F2A",
+   }
+   ,
+   {
+     "tag" :  "5F2A",
+     "name" :		"Transaction Currency Code",
+     "kernel" :	"VISA",
+     "source":	"Terminal",
+     "format":	"n 3",
+     "template":	"N/A",
+     "length":	"2 [B]",
+     "description":	"Indicates the currency code of the transaction according to ISO 4217",
+     "comment":	"M",
+     "Example":	"0978"
+   }
+   ,
+   { "tag" :		"5F2A",
    "name" :		"Transaction Currency Code",
    "kernel" :	"MasterCard",
    "source":	"Terminal",
@@ -286,42 +291,44 @@ var tags = [
    "length":	"2 [B]",
    "description":	"Indicates the currency code of the transaction according to ISO 4217",
    "Example":	"0978"
-   },{ "tag" :		"5F2A",
-   "name" :		"Transaction Currency Code",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 3",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Indicates the currency code of the transaction according to [ISO 4217]. The implied exponent is indicated by the minor unit of currency associated with the Transaction Currency Code in [ISO 4217].",
-   "Example":	"0978"
-   },{ "tag" :		"5F2A",
-   "name" :		"Transaction Currency Code",
-   "kernel" :	"AMEX",
-   "source":	"Terminal",
-   "format":	"n 3",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Indicates the currency code of the transaction according to [ISO 4217]",
-   "Example":	"0978"
-   },{ "tag" :		"5F2A",
-   "name" :		"Transaction Currency Code",
-   "kernel" :	"JCB",
-   "source":	 "Format:	n 3",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Indicates the currency code of the transaction according to ISO 4217. Requested in CDOL1.",
-   "comment":	"M",
-   "Example":	"0978"
-   },{ "tag" :		"5F2D",
-   "name" :		"Language Preference",
-   "kernel" :	"MasterCard",
-   "source":	"ICC",
-   "format":	"an 2",
-   "template":	"'A5'",
-   "length":	"2-8 [B]",
-   "description":	"1-4 languages stored in order of preference, each represented by 2 alphabetical characters according to ISO 639, Note: EMVCo strongly recommends that cards be personalised with data element '5F2D' coded in lowercase, but that terminals accept the data element whether it is coded in upper or lower case."
-   },{ "tag" :		"5F2D",
+   }
+   ,
+   {
+     "tag" :		"5F2A",
+     "name" :		"Transaction Currency Code",
+     "kernel" :	"AMEX",
+     "source":	"Terminal",
+     "format":	"n 3",
+     "template":	"N/A",
+     "length":	"2 [B]",
+     "description":	"Indicates the currency code of the transaction according to [ISO 4217]",
+     "Example":	"0978"
+   }
+   ,
+   {
+    "tag" :		"5F2A",
+     "name" :		"Transaction Currency Code",
+     "kernel" :	"JCB",
+     "source":	 "Format:	n 3",
+     "template":	"N/A",
+     "length":	"2 [B]",
+     "description":	"Indicates the currency code of the transaction according to ISO 4217. Requested in CDOL1.",
+     "comment":	"M",
+     "Example":	"0978"
+   }
+   ,
+   {
+     "tag" :		"5F2D",
+     "name" :		"Language Preference",
+     "kernel" :	"MasterCard",
+     "source":	"ICC",
+     "format":	"an 2",
+     "template":	"'A5'",
+     "length":	"2-8 [B]",
+     "description":	"1-4 languages stored in order of preference, each represented by 2 alphabetical characters according to ISO 639, Note: EMVCo strongly recommends that cards be personalised with data element '5F2D' coded in lowercase, but that terminals accept the data element whether it is coded in upper or lower case."
+   }
+   ,
+   { "tag" :		"5F2D",
    "name" :		"Language Preference",
    "kernel" :	"VISA",
    "source":	"ICC",
@@ -648,35 +655,33 @@ var tags = [
    "description":	"Authorised amount of the transaction (excluding adjustments)",
    "Example":	"00010000",
 
-   },{ "tag" :		"82",
-   "name" :		"Application Interchange Profile (AIP)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary",
-   "template":	"'77' or '80'",
-   "length":	"2 [B]",
-   "description":	"Indicates the capabilities of the card to support specific functions in the application",
-   "comment":	"M",
-
-   },{ "tag" :		"82",
-   "name" :		"Application Interchange Profile (AIP)",
-   "kernel" :	"MasterCard",
-   "source":	"ICC",
-   "format":	"binary",
-   "template":	"'77' or '80'",
-   "length":	"2 [B]",
-   "description":	"Indicates the capabilities of the card to support specific functions in the application"
-
-   },{ "tag" :		"82",
-   "name" :		"Application Interchange Profile (AIP)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary 16",
-   "template":	"'77' or '80'",
-   "length":	"2 [B]",
-   "description":	"Indicates the capabilities of the card to support specific functions in the application. Kernel 3 shall not act on AIP bit settings that are not supported for Kernel 3 or that are Reserved for Future Use (RFU)."
-
-   },{ "tag" :		"82",
+   }
+   ,
+   {
+     "tag" :		"82",
+     "name" :		"Application Interchange Profile (AIP)",
+     "kernel" :	"VISA",
+     "source":	"ICC",
+     "format":	"binary",
+     "template":	"'77' or '80'",
+     "length":	"2 [B]",
+     "description":	"Indicates the capabilities of the card to support specific functions in the application",
+     "comment":	"M",
+   }
+   ,
+   {
+     "tag" :		"82",
+     "name" :		"Application Interchange Profile (AIP)",
+     "kernel" :	"MasterCard",
+     "source":	"ICC",
+     "format":	"binary",
+     "template":	"'77' or '80'",
+     "length":	"2 [B]",
+     "description":	"Indicates the capabilities of the card to support specific functions in the application"
+   }
+   ,
+   {
+     "tag" :		"82",
    "name" :		"Application Interchange Profile (AIP)",
    "kernel" :	"AMEX",
    "source":	"ICC",
@@ -1118,15 +1123,6 @@ var tags = [
 
    },{ "tag" :		"95",
    "name" :		"Terminal Verification Results (TVR)",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"binary 40",
-   "template":	"N/A",
-   "length":	"5 [B]",
-   "description":	"Status of the different functions as seen from the reader/terminal. For EMV mode transactions, all of the TVR bits sent online to the acquirer shall be set to 0b.",
-
-   },{ "tag" :		"95",
-   "name" :		"Terminal Verification Results (TVR)",
    "kernel" :	"AMEX",
    "source":	"Terminal",
    "format":	"binary 40",
@@ -1191,15 +1187,6 @@ var tags = [
 
    },{ "tag" :		"9A",
    "name" :		"Transaction Date",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 6 (YYMMDD)",
-   "template":	"N/A",
-   "length":	"3 [B]",
-   "description":	"Local date that the transaction was authorised",
-
-   },{ "tag" :		"9A",
-   "name" :		"Transaction Date",
    "kernel" :	"AMEX",
    "source":	"Terminal",
    "format":	"n 6 (YYMMDD)",
@@ -1244,15 +1231,6 @@ var tags = [
    "template":	"N/A",
    "length":	"1 [B]",
    "description":	"Indicates the type of financial transaction, represented by the first two digits of the ISO 8583:1993 Processing Code. The actual values to be used for the Transaction Type data element are defined by the relevant payment system.",
-
-   },{ "tag" :		"9C",
-   "name" :		"Transaction Type",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 2",
-   "template":	"N/A",
-   "length":	"1 [B]",
-   "description":	"Indicates the type of transaction, represented by the values of the first two digits of Processing Code as defined by the payment system.",
 
    },{ "tag" :		"9C",
    "name" :		"Transaction Type",
@@ -1321,16 +1299,6 @@ var tags = [
 
    },{ "tag" :		"9F02",
    "name" :		"Amount, Authorised (Numeric)",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 12",
-   "template":	"N/A",
-   "length":	"6 [B]",
-   "description":	"Authorised amount of the transaction (including Amount, Other and excluding adjustments).",
-   "Example":	"000000010000",
-
-   },{ "tag" :		"9F02",
-   "name" :		"Amount, Authorised (Numeric)",
    "kernel" :	"AMEX",
    "source":	"Terminal",
    "format":	"n 12",
@@ -1369,15 +1337,6 @@ var tags = [
    "template":	"N/A",
    "length":	"6 [B]",
    "description":	"Secondary amount associated with the transaction representing a cash back amount. This amount is expressed with implicit decimal point corresponding to the minor unit of currency as defined by [ISO 4217] (for example the 6 bytes '00 00 00 00 01 23' represent GBP 1.23 when the currency code is '826').",
-
-   },{ "tag" :		"9F03",
-   "name" :		"Amount, Other (Numeric)",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 12",
-   "template":	"N/A",
-   "length":	"6 [B]",
-   "description":	"Secondary amount associated with the transaction representing a cashback amount.",
 
    },{ "tag" :		"9F03",
    "name" :		"Amount, Other (Numeric)",
@@ -1425,7 +1384,7 @@ var tags = [
    "length":	"5-16 [B]",
    "description":	"Identifies the application as described in ISO/IEC 7816-5",
 
-   },{ "tag" :		"9F06",
+   },{ "tag" :	"9F06",
    "name" :		"Application Identifier (AID)",
    "kernel" :	"VISA",
    "source":	"Terminal",
@@ -1614,15 +1573,6 @@ var tags = [
 
    },{ "tag" :		"9F10",
    "name" :		"Issuer Application Data (IAD)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary",
-   "template":	"'77' or '80'",
-   "length":	"Variable",
-   "description":	"Contains proprietary application data for transmission to the Issuer in an online transaction.",
-
-   },{ "tag" :		"9F10",
-   "name" :		"Issuer Application Data (IAD)",
    "kernel" :	"AMEX",
    "source":	"ICC",
    "format":	"binary",
@@ -1795,16 +1745,9 @@ var tags = [
    "length":	"2 [B]",
    "description":	"Indicates the country of the terminal, represented according to ISO 3166-1",
 
-   },{ "tag" :		"9F1A",
-   "name" :		"Terminal Country Code",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"n 3",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Indicates the country of the terminal, represented according to ISO 3166",
-
-   },{ "tag" :		"9F1A",
+ }
+ ,
+ { "tag" :		"9F1A",
    "name" :		"Terminal Country Code",
    "kernel" :	"AMEX",
    "source":	"Terminal",
@@ -1972,15 +1915,6 @@ var tags = [
 
    },{ "tag" :		"9F26",
    "name" :		"Application Cryptogram (AC)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary 64",
-   "template":	"'77' or '80'",
-   "length":	"8 [B]",
-   "description":	"Cryptogram returned by the card in response to the GPO command."
-
-   },{ "tag" :		"9F26",
-   "name" :		"Application Cryptogram (AC)",
    "kernel" :	"AMEX",
    "source":	"ICC",
    "format":	"binary 64",
@@ -2016,15 +1950,6 @@ var tags = [
    "template":	"'77' or '80'",
    "length":	"1 [B]",
    "description":	"Indicates the type of cryptogram and the actions to be performed by the Kernel. The Cryptogram Information Data is coded according to Table 14 of [EMV Book 3]."
-
-   },{ "tag" :		"9F27",
-   "name" :		"Cryptogram Information Data (CID)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary 8",
-   "template":	"N/A",
-   "length":	"1 [B]",
-   "description":	"Indicates the type of cryptogram (TC, ARQC, or AAC) returned by the card and the actions to be performed by the reader."
 
    },{ "tag" :		"9F27",
    "name" :		"Cryptogram Information Data (CID)",
@@ -2189,26 +2114,20 @@ var tags = [
    "length":	"2 [B]",
    "description":	"Counter maintained by the application in the ICC (incrementing the ATC is managed by the ICC)",
 
-   },{ "tag" :		"9F36",
-   "name" :		"Application Transaction Counter (ATC)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary",
-   "template":	"'77' or '80'",
-   "length":	"2 [B]",
-   "description":	"Counter maintained by the application in the ICC (incrementing the ATC is managed by the ICC)",
-   "comment":	"M",
-
-   },{ "tag" :		"9F36",
-   "name" :		"Application Transaction Counter (ATC)",
-   "kernel" :	"VISA",
-   "source":	"ICC",
-   "format":	"binary 16",
-   "template":	"N/A",
-   "length":	"2 [B]",
-   "description":	"Count of the number of transactions initiated since personalisation. Maintained by the application in the card.",
-
-   },{ "tag" :		"9F36",
+   }
+   ,
+   { "tag" :	"9F36",
+     "name" :		"Application Transaction Counter (ATC)",
+     "kernel" :	"VISA",
+     "source":	"ICC",
+     "format":	"binary",
+     "template":	"'77' or '80'",
+     "length":	"2 [B]",
+     "description":	"Counter maintained by the application in the ICC (incrementing the ATC is managed by the ICC)",
+     "comment":	"M",
+   }
+   ,
+   { "tag" :		"9F36",
    "name" :		"Application Transaction Counter (ATC)",
    "kernel" :	"AMEX",
    "source":	"ICC",
@@ -2244,15 +2163,6 @@ var tags = [
    "template":	"N/A",
    "length":	"4 [B]",
    "description":	"Contains a Kernel challenge (random) to be used by the Card to ensure the variability and uniqueness to the generation of a cryptogram during an EMV mode transaction.",
-
-   },{ "tag" :		"9F37",
-   "name" :		"Unpredictable Number (UN) (Reader/Terminal)",
-   "kernel" :	"VISA",
-   "source":	"Terminal",
-   "format":	"binary 32",
-   "template":	"N/A",
-   "length":	"4 [B]",
-   "description":	"Value to provide variability and uniqueness to the generation of the application cryptogram.",
 
    },{ "tag" :		"9F37",
    "name" :		"Unpredictable Number (UN)",

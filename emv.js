@@ -1,10 +1,9 @@
 var util = require('./util.js');
 var emv_tags = require('./tags.js');
 
-
-function lookup( tag, callback ){
+function lookupKernel( tag, kernel, callback ){
 	var found = emv_tags.filter(function(item) {
-		if(item.tag == tag)
+		if(item.tag == tag && item.kernel.toUpperCase() == kernel.toUpperCase())
 			callback (item.name);
 		});
 };
@@ -14,7 +13,6 @@ function getValue( tag, emv_objects, callback ){
 		if(item.tag == tag)
 			callback( item.value );
 		});
-
 };
 function getElement( tag, emv_objects, callback ){
 	var found = emv_objects.filter(function(item) {
@@ -68,13 +66,12 @@ function parse(emv_data, callback){
 
 };
 
-
-function describe(emv_data, callback){
+function describeKernel(emv_data, kernel,callback){
 	var emv_objects = [];
 	parse(emv_data, function(tlv_list){
 		if(tlv_list != null){
 			for(var i=0; i < tlv_list.length; i++){
-				lookup(tlv_list[i].tag,  function(data){
+				lookupKernel(tlv_list[i].tag, kernel, function(data){
 					if(data.length > 0){
 						emv_objects.push( { 'tag': tlv_list[i].tag, 'length': tlv_list[i].length, 'value' : tlv_list[i].value, 'description' : data} );
 					}else{
@@ -86,7 +83,6 @@ function describe(emv_data, callback){
 		}
 	});
 };
-
 
 function aip(aip_data, callback){
 	var aip_bin = util.pad(util.Hex2Bin(aip_data), 16);
@@ -316,14 +312,16 @@ function tvr(tvr_data, callback){
 
 
 module.exports={
-	parse 	 : function(emv_data, callback){ parse(emv_data, callback); },
-	describe : function(emv_data, callback){ describe(emv_data, callback); },
-	lookup	 : function(emv_tag, callback){ lookup(emv_tag, callback); },
-	getValue	 : function(emv_tag, emv_objects, callback){ getValue(emv_tag, emv_objects, callback); },
-	getElement	 : function(emv_tag, emv_objects, callback){ getElement(emv_tag, emv_objects, callback); },
-	aip	 	 : function(aip_data, callback){ aip(aip_data, callback); },
-	auc		 : function(auc_data, callback){ auc(auc_data, callback); },
-	cvm 	 : function(cvm_data, callback){ cvm(cvm_data, callback); },
-	tvr 	 : function(tvr_data, callback){ tvr(tvr_data, callback); },
-	tsi 	 : function(tsi_data, callback){ tvr(tsi_data, callback); }
+	parse : function(emv_data, callback){ parse(emv_data, callback); },
+	describe : function(emv_data, callback){ describeKernel(emv_data, "Generic", callback); },
+	lookup : function(emv_tag, callback){ lookupKernel(emv_tag, "Generic",callback); },
+	describeKernel : function(emv_data, kernel, callback){ describeKernel(emv_data, kernel, callback); },
+	lookupKernel : function(emv_tag, kernel, callback){ lookupKernel(emv_tag, kernel, callback); },
+	getValue : function(emv_tag, emv_objects, callback){ getValue(emv_tag, emv_objects, callback); },
+	getElement : function(emv_tag, emv_objects, callback){ getElement(emv_tag, emv_objects, callback); },
+	aip : function(aip_data, callback){ aip(aip_data, callback); },
+	auc	: function(auc_data, callback){ auc(auc_data, callback); },
+	cvm : function(cvm_data, callback){ cvm(cvm_data, callback); },
+	tvr : function(tvr_data, callback){ tvr(tvr_data, callback); },
+	tsi : function(tsi_data, callback){ tvr(tsi_data, callback); }
 };
