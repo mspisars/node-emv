@@ -42,7 +42,7 @@ function parse(emv_data, callback){
 		var lenHex = emv_data.substring(tag.length, tag.length + 2);
 
 		var lenBin = util.pad(util.Hex2Bin(lenHex), 8);
-		var byteToBeRead = 1
+		var byteToBeRead = 0;
 		var len = util.Hex2Dec(lenHex) * 2;
 		var offset = tag.length + 2 + len;
 
