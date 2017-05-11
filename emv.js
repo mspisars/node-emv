@@ -57,7 +57,13 @@ function parse(emv_data, callback){
 
 		var value = emv_data.substring(tag.length + 2 + (byteToBeRead*2), offset);
 
-		//console.log(tag + ' ' + lenHex + ' ' + value);
+		if (tag_constructed == '1') {
+			parse(value, function(innerTags) {
+				value = innerTags;
+			})
+
+		}
+
 		emv_objects.push( { 'tag': tag, 'length': lenHex, 'value' : value} );
 		emv_data = emv_data.substring(offset);
 	}
