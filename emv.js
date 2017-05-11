@@ -27,15 +27,24 @@ function parse(emv_data, callback){
 		var tag_bin = util.Hex2Bin(emv_data.substring(0, 2));
 		tag_bin = util.pad(tag_bin, 8);
 		//console.log(tag_bin);
-		var tag_class = tag_bin.substring(0, 2);
+		var tag_limit = 2;
+		var tag_class = tag_bin.substring(0, tag_limit);
 		var tag_constructed = tag_bin.substring(2, 3);
 		var tag_number = tag_bin.substring(3, 8);
+		var tag_octet = '';
 
 		if (tag_number == '11111'){
+			do {
+				// at least one more byte
+				tag_limit += 2;
+				tag_octet = util.Hex2Bin(emv_data.substring(tag_limit-2, tag_limit))
+				tag_octet = util.pad(tag_octet, 8);
+
+			} while (tag_octet.substring(0,1) == '1')
 			//console.log('constructed tag');
-			tag_bin = util.Hex2Bin(emv_data.substring(0, 4));
-			tag_bin = util.pad(tag_bin, 16);
-			tag_number = tag_bin.substring(3, 16);
+			tag_bin = util.Hex2Bin(emv_data.substring(0, tag_limit));
+			tag_bin = util.pad(tag_bin, 8*(tag_limit/2));
+			tag_number = tag_bin.substring(3, 8*(tag_limit/2));
 		}
 
 		var tag = util.Bin2Hex(tag_class + tag_constructed + tag_number).toUpperCase();
