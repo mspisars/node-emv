@@ -4,8 +4,9 @@ var emv_tags = require('./tags.js');
 function lookupKernel( tag, kernel, callback ){
 	var found = emv_tags.filter(function(item) {
 		if(item.tag == tag && item.kernel.toUpperCase() == kernel.toUpperCase())
-			callback (item.name);
+			return true;			
 		});
+	callback (found.length && found[0].name);
 };
 
 function getValue( tag, emv_objects, callback ){
@@ -60,8 +61,7 @@ function parse(emv_data, callback){
 		if (tag_constructed == '1') {
 			parse(value, function(innerTags) {
 				value = innerTags;
-			})
-
+			});
 		}
 
 		emv_objects.push( { 'tag': tag, 'length': lenHex, 'value' : value} );
@@ -72,17 +72,27 @@ function parse(emv_data, callback){
 
 };
 
-function describeKernel(emv_data, kernel,callback){
+function describeKernel(emv_data, kernel, callback){
 	var emv_objects = [];
 	parse(emv_data, function(tlv_list){
 		if(tlv_list != null){
 			for(var i=0; i < tlv_list.length; i++){
 				lookupKernel(tlv_list[i].tag, kernel, function(data){
-					if(data.length > 0){
-						emv_objects.push( { 'tag': tlv_list[i].tag, 'length': tlv_list[i].length, 'value' : tlv_list[i].value, 'description' : data} );
-					}else{
-						emv_objects.push( tlv_list[i] );
+					var inner_list = tlv_list[i].value;
+					if( Array.isArray(inner_list) ){
+						for(var j=0; j < inner_list.length; j++){
+							lookupKernel(inner_list[j].tag, kernel, function(jdata){
+								if(jdata){
+									inner_list[j].description = jdata;
+								}
+							});
+						}
 					}
+					if(data){
+						tlv_list[i].description = data;
+					}
+
+					emv_objects.push( tlv_list[i] );
 				});
 			}
 			callback(emv_objects);
