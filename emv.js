@@ -61,8 +61,9 @@ function parse(emv_data, callback){
 			lenHex = emv_data.substring(tag.length, tag.length + 2 + byteToBeRead*2)
 			console.log('lenHex: ' + lenHex + ' lenBin: '+ lenBin +' ---> len is more than 1 byte');
 			// 	lenHex = emv_data.substring(tag.length, tag.length + 4);
-			len = util.Hex2Dec(lenHex.substring(1)) * 2;
+			len = util.Hex2Dec(lenHex.substring(2)) * 2;
 			offset = tag.length + 2 + (byteToBeRead*2)+len;
+			console.log('length (decimals): ' + len + ' offset: '+ offset +' - this is for the substring of emv_data');
 		}
 
 		var value = emv_data.substring(tag.length + 2 + (byteToBeRead*2), offset);
