@@ -22,8 +22,11 @@ function getElement( tag, emv_objects, callback ){
 		});
 };
 
-function parse(emv_data, callback){
+function parse(emv_data, objFlag, callback){
 	var emv_objects = [];
+	if (objFlag) {
+		emv_objects = {};
+	}
 	while(emv_data.length > 0){
 		var tag_bin = util.Hex2Bin(emv_data.substring(0, 2));
 		tag_bin = util.pad(tag_bin, 8);
@@ -69,12 +72,23 @@ function parse(emv_data, callback){
 		var value = emv_data.substring(tag.length + 2 + (byteToBeRead*2), offset);
 
 		if (tag_constructed == '1') {
-			parse(value, function(innerTags) {
+			parse(value, objFlag, function(innerTags) {
 				value = innerTags;
 			});
 		}
-
-		emv_objects.push( { 'tag': tag, 'length': lenHex, 'value' : value} );
+		var tagObj = { 'length': len, 'lengthStr': lenHex, 'value': value };
+		if (objFlag) {
+			if (emv_objects.hasOwnProperty(tag) && emv_objects[tag].length) {
+				emv_objects[tag].push(tagObj)
+			}
+			else {
+				emv_objects[tag] = [ tagObj ];
+			}
+		}
+		else {
+			tagObj.tag = tag;
+			emv_objects.push( tagObj );
+		}
 		emv_data = emv_data.substring(offset);
 	}
 
@@ -84,7 +98,7 @@ function parse(emv_data, callback){
 
 function describeKernel(emv_data, kernel, callback){
 	var emv_objects = [];
-	parse(emv_data, function(tlv_list){
+	parse(emv_data, false, function(tlv_list){
 		if(tlv_list != null){
 			for(var i=0; i < tlv_list.length; i++){
 				lookupKernel(tlv_list[i].tag, kernel, function(data){
@@ -338,13 +352,14 @@ function tvr(tvr_data, callback){
 
 
 module.exports={
-	parse : function(emv_data, callback){ parse(emv_data, callback); },
-	describe : function(emv_data, callback){ describeKernel(emv_data, "Generic", callback); },
-	lookup : function(emv_tag, callback){ lookupKernel(emv_tag, "Generic",callback); },
-	describeKernel : function(emv_data, kernel, callback){ describeKernel(emv_data, kernel, callback); },
-	lookupKernel : function(emv_tag, kernel, callback){ lookupKernel(emv_tag, kernel, callback); },
-	getValue : function(emv_tag, emv_objects, callback){ getValue(emv_tag, emv_objects, callback); },
-	getElement : function(emv_tag, emv_objects, callback){ getElement(emv_tag, emv_objects, callback); },
+	parse : 		function(emv_data, callback){ parse(emv_data, false, callback); },
+	parseObject : 	function(emv_data, callback){ parse(emv_data, true,  callback); },
+	describe : 		function(emv_data, callback){ describeKernel(emv_data, "Generic", callback); },
+	lookup : 		function(emv_tag,  callback){ lookupKernel(emv_tag, "Generic",callback); },
+	describeKernel: function(emv_data, kernel, callback){ describeKernel(emv_data, kernel, callback); },
+	lookupKernel : 	function(emv_tag, kernel, callback){ lookupKernel(emv_tag, kernel, callback); },
+	getValue : 		function(emv_tag, emv_objects, callback){ getValue(emv_tag, emv_objects, callback); },
+	getElement : 	function(emv_tag, emv_objects, callback){ getElement(emv_tag, emv_objects, callback); },
 	aip : function(aip_data, callback){ aip(aip_data, callback); },
 	auc	: function(auc_data, callback){ auc(auc_data, callback); },
 	cvm : function(cvm_data, callback){ cvm(cvm_data, callback); },
