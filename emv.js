@@ -77,12 +77,7 @@ function parse(emv_data, objFlag, callback){
 		}
 		var tagObj = { 'length': len, 'lengthStr': lenHex, 'value': value };
 		if (objFlag) {
-			if (emv_objects.hasOwnProperty(tag) && emv_objects[tag].length) {
-				emv_objects[tag].push(tagObj)
-			}
-			else {
-				emv_objects[tag] = [ tagObj ];
-			}
+			emv_objects[tag] = tagObj;
 		}
 		else {
 			tagObj.tag = tag;
